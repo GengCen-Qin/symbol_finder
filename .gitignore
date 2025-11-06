@@ -1,0 +1,77 @@
+# Ruby gem specific
+*.gem
+Gemfile.lock
+.ruby-version
+.ruby-gemset
+.ruby-lint.yml
+
+# Build artifacts
+/pkg/
+/dist/
+/coverage/
+/.yardoc/
+/doc/
+/rdoc/
+/spec/reports/
+/test/reports/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+log/
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+
+# Claude and Serena configuration
+.claude/
+.serena/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Cache directories
+/cache/
+/.cache/
+
+# Test artifacts
+/simplecov/
+
+# RSpec
+/spec/tmp/
+
+# RuboCop
+.rubocop-http---
+
+# Bundler
+.bundle/
+vendor/bundle/
+
+# Documentation
+.yardoc/
+_yardoc/
+doc/
