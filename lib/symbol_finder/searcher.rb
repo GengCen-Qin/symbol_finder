@@ -39,15 +39,10 @@ module SymbolFinder
       # 1. 精确匹配
       results.concat(symbol_index[query]) if symbol_index[query]
 
-      # 2. 前缀匹配
-      symbol_index.each do |symbol, symbol_list|
-        results.concat(symbol_list) if symbol.start_with?(query) && symbol != query
-      end
-
-      # 3. 按类型过滤结果
+      # 2. 按类型过滤结果
       results.select! { |result| result['type'] == @options[:type].to_s } if @options[:type]
 
-      # 4. 去重并排序
+      # 3. 去重并排序
       results.uniq! { |r| "#{r['file']}:#{r['line']}" }
       results.sort_by! { |r| [r['file'], r['line']] }
 
@@ -152,13 +147,8 @@ module SymbolFinder
     def get_match_type_info(symbol_name, query)
       return "" if symbol_name.nil?
 
-      if symbol_name == query
-        " [exact]"
-      elsif symbol_name.start_with?(query)
-        " [prefix]"
-      else
-        ""
-      end
+      # 现在只支持精确匹配
+      symbol_name == query ? " [exact]" : ""
     end
 
     # 格式化方法签名
